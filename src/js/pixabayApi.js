@@ -33,7 +33,7 @@ export class PixabayApi {
         const searchResult = await baseRequest.get("", config);
         const response = await searchResult.data.hits;
 
-        const totalResults = await searchResult.data.total;
+        const totalResults = await searchResult.data.totalHits;
         PixabayApi.maxPage = Math.ceil(totalResults / PixabayApi.perPage);
         
         if (!response.length) {
